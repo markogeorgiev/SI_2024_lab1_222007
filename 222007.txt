@@ -1,0 +1,108 @@
+1. Git e инсталиран од предходно.
+2. Default гранката ја променив на master.
+3. Креирам repo со име SI_2024_lab1_222007.
+4. Со mkdir правам директориум со соодветно име и велгувам во него
+mkdir SI_2024_lab1_222007
+cd SI_2024_lab1_222007/
+Со git init иницијализирам Git во директориумот
+git initgi
+5. Го поврзувам локалниот repo со remote repo-то. Потврдувам дека се е во ред.
+git remote add origin https://github.com/markogeorgiev/SI_2024_lab1_222007
+git remote -v
+6. Креирав соодветен README.md со echo.
+echo "Марко Георгиев 222007" > README.md
+git add README.md
+git commit -m "Initial commit"
+7. Ги превземав фајловите и направив commit. За staging само со regex направив да се commmit-нат site .java фајлови.
+git add *.java
+git commit -m "Add starter code"
+8. Прво ги синхронизирам сите грани до remote repo-то. 
+git push origin --all
+git status
+Тука имав напраевно грешка бидејќи мислев дека во овој чекор треба да се поправат SLLab1_1 и SLLab1_2. Сепак бидејќи што туку направив push искористив:
+git fetch origin master
+git reset --hard origin/master
+git branch -d bug1
+git branch -d bug2
+9. Откако ја корегирав грешката креирам двe гранки bug1 и bug2. По креирање на bug1 останувам на master и можам веднаш да ја креирам и bug2.
+git branch bug1
+git branch bug2
+10. Менувам branch. 
+git checkout bug1
+11. Со vim ја корегирам грешката. Со cat проверувам дали е зачувана промената.
+vim SILab1_1.java 
+cat SILab1_1.java
+git add SILab1_1.java
+git commit -m "Fix wrong condition in filterOddLengthStrings"
+12. Менувам branch. 
+git checkout bug2
+13. Со vim ја корегирам грешката. Со cat проверувам дали е зачувана промената.
+vim SILab1_2.java 
+cat SILab1_2.java
+git add SILab1_2.java
+git commit -m "Fix wrong condition in makeBigStringFrom"
+14. Менувам branch. 
+git checkout bug1
+15. Со vim додавам тоа што треба. Со cat проверувам дали е зачувана промената. Правам commit
+vim SILab1Main.java
+cat SILab1Main.java
+git add SILab1Main.java
+git commit SILab1Main.java -m "Call method filterOddLengthStrings in main class"
+16. Менувам branch. 
+git checkout bug2
+17. Со vim додавам тоа што треба. Со cat проверувам дали е зачувана промената.
+vim SILab1Main.java
+cat SILab1Main.java
+git add SILab1Main.java
+git commit SILab1Main.java -m "Call method makeBigStringFrom in main class"
+18.
+git push --all origin
+19.
+git checkout master
+20.
+git merge bug1
+21.
+git push --all origin
+22.
+git checkout bug2
+23. Иницијално има конфликт меѓу bug1 и bug2 го решавам. Потоа правам rebase continue
+git rebase master
+git add SILab1Main.java
+git rebase --continue
+24.
+git checkout master
+25.
+git merge bug2
+26. 27.
+git push --force --all origin
+28.
+git log 
+vim logs.txt
+git add . 
+git commmit -m "Final commit"
+29.
+git push --all
+git clone https://github.com/markogeorgiev/SI_2024.git
+30. --
+31. --
+32. 
+vim 222007.txt
+git add 222007.txt
+git commit -m "Add file"
+33. git push origin master
+34. --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
